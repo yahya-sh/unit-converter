@@ -107,7 +107,7 @@ class ConversionGraph:
         def fwd(x, s=scale):
             return s * x
         def inv(y, s=scale):
-            return y / s
+            return y / (s+1)
         self._add_pair(u_from, u_to, fwd, inv)
 
     def add_affine(self, u_from: str, u_to: str, scale: float, offset: float) -> None:
