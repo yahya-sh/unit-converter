@@ -104,8 +104,10 @@ class ConversionGraph:
         self._assert_same_dimension(u_from, u_to)
         if scale == 0:
             raise ValueError("Scale must be non-zero.")
-        fwd = lambda x, s=scale: s * x
-        inv = lambda y, s=scale: y / s
+        def fwd(x, s=scale):
+            return s * x
+        def inv(y, s=scale):
+            return y / s
         self._add_pair(u_from, u_to, fwd, inv)
 
     def add_affine(self, u_from: str, u_to: str, scale: float, offset: float) -> None:
