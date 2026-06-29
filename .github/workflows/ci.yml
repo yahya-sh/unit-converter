@@ -10,5 +10,20 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - name: Hello World
-              run: echo "Hello World"
+            - name: Checkout Code
+              uses: actions/checkout@v7
+            - name: Setup Python
+              uses: actions/setup-python@v6
+              with:
+                python-version: '3.13'
+            - name: Install Dependencies
+              run: |
+                python -m pip install --upgrade pip wheel
+                pip install -e ".[dev]"
+            - name: Quick CLI Smoke Test
+              run: |
+                units-convert --help || (echo "CLI missing" && exit 1)
+            - name: Run Tests
+              run: |
+                pytest
+              
