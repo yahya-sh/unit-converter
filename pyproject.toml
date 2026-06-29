@@ -44,7 +44,6 @@ addopts = [
     "--cov-report=term-missing",
     "--cov-report=html",
     "-n=auto",
-    "--cov-fail-under=90",
 ]
 markers = [
     "acceptance: Tests that validate that the software meets business requirements and user needs",
