@@ -29,4 +29,17 @@ jobs:
             - name: Run Tests
               run: |
                 pytest
-              
+    test-complete:
+        name: test
+        needs: test
+        runs-on: ubuntu-latest
+
+        if: always()
+
+        steps:
+            - name: Fail if any matrix job failed
+              run: |
+                if [[ "${{ needs.test.result }}" != "success" ]]; then
+                    echo "Some matrix jobs failed"
+                    exit 1
+                fi
