@@ -58,6 +58,8 @@ A Python library for unit conversions with CLI support.
     └── registry.py
 ```
 
+new line
+
 ## Install
 
 ### Development
