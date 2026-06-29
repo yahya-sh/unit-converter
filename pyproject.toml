@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "units-converter"
+version = "0.1.0"
+description = "A flexible unit conversion library with CLI support"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "typer>=0.9.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=7.0.0",
+    "hypothesis>=6.140.0",
+    "faker>=37.8.0",
+]
+
+[project.scripts]
+units-convert = "uc.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["uc*"]
+
+[tool.setuptools.package-data]
+uc = ["data/*.yaml"]
+
+[tool.setuptools.dynamic]
+version = { attr = "uc.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --strict-markers --cov=uc --cov-report=term-missing"
+markers = [
+    "acceptance: Tests that validate that the software meets business requirements and user needs",
+    "regression: Tests that ensure previously fixed bugs and working features remain functional after code changes"
+]

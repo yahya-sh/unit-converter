@@ -1,0 +1,24 @@
+dimension: mass
+units:
+  - kg
+  - g
+  - mg
+  - lb
+  - oz
+conversions:
+  - from: kg
+    to: g
+    type: linear
+    scale: 1000.0
+  - from: g
+    to: mg
+    type: linear
+    scale: 1000.0
+  - from: lb
+    to: kg
+    type: linear
+    scale: 0.453592
+  - from: lb
+    to: oz
+    type: linear
+    scale: 16.0

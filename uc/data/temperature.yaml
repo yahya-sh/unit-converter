@@ -1,0 +1,16 @@
+dimension: temperature
+units:
+  - C
+  - F
+  - K
+conversions:
+  - from: C
+    to: K
+    type: affine
+    scale: 1.0
+    offset: 273.15
+  - from: C
+    to: F
+    type: affine
+    scale: 1.8
+    offset: 32.0

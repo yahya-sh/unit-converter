@@ -1,0 +1,34 @@
+dimension: length
+units:
+  - m
+  - cm
+  - mm
+  - km
+  - mi
+  - ft
+  - in
+conversions:
+  - from: m
+    to: cm
+    type: linear
+    scale: 100.0
+  - from: cm
+    to: mm
+    type: linear
+    scale: 10.0
+  - from: km
+    to: m
+    type: linear
+    scale: 1000.0
+  - from: mi
+    to: km
+    type: linear
+    scale: 1.60934
+  - from: ft
+    to: in
+    type: linear
+    scale: 12.0
+  - from: m
+    to: ft
+    type: linear
+    scale: 3.28084
